@@ -15,7 +15,7 @@ class Command
      * @param bool $worktreeEnabled
      * @return string
      */
-    public static function run(Git $repo, $command, $check = true, $quiet = false, $worktreeEnabled = true)
+    public static function run(Git $repo, $command, $check = true, $quiet = false, $worktreeEnabled = true, $dirEnabled = true)
     {
         $dir = $repo->getDir();
         $dir = preg_replace('!/{2,}!', '/', $dir);
@@ -30,7 +30,9 @@ class Command
                 $command = preg_replace("/^git/", "git --work-tree={$workTree}", $command);
             }
 
-            $command = preg_replace("/^git/", "git --git-dir={$dir}", $command);
+            if ($dirEnabled) {
+                $command = preg_replace("/^git/", "git --git-dir={$dir}", $command);
+            }
 
             if ($quiet) {
                 $command .= ' --quiet';
