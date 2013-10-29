@@ -1,0 +1,19 @@
+{
+    "name": "gavroche/git",
+    "type": "library",
+    "description": "Simple Git wrapper for PHP",
+    "keywords": ["Git"],
+    "homepage": "https://github.com/gavroche/php-git",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gabriel Bull",
+            "email": "gavroche.bull@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0" : {
+            "SiteSearch" : "src/"
+        }
+    }
+}
