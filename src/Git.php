@@ -346,6 +346,21 @@ class Git
     }
 
     /**
+     * Clone git repo
+     *
+     * @param string $remote
+     * @return bool
+     */
+    public function cloneRemote($remote)
+    {
+        $retval = Command::run($this, "git clone {$remote}", false);
+        if (stristr($retval, 'Initialized') !== false) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * Commit.
      *
      * @param string $msg
