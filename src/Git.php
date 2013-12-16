@@ -351,11 +351,18 @@ class Git
      * Clone git repo
      *
      * @param string $remote
+     * @param string $branch
      * @return bool
      */
-    public function cloneRemote($remote)
+    public function cloneRemote($remote, $branch = null)
     {
-        $retval = Command::run($this, "git clone {$remote} " . $this->getDir(), false, false, false, false);
+        $command = "git clone";
+        if (null !== $branch) {
+            $command .= " -b {$branch}";
+        }
+        $command .= " {$remote} " . $this->getDir();
+
+        $retval = Command::run($this, $command, false, false, false, false);
         if (stristr($retval, 'Initialized') !== false) {
             return true;
         }
