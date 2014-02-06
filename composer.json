@@ -1,14 +1,14 @@
 {
-    "name": "gavroche/git",
+    "name": "gabrielbull/git",
     "type": "library",
     "description": "Simple Git wrapper for PHP",
     "keywords": ["Git"],
-    "homepage": "https://github.com/gavroche/php-git",
+    "homepage": "https://github.com/gabrielbull/php-git",
     "license": "MIT",
     "authors": [
         {
             "name": "Gabriel Bull",
-            "email": "gavroche.bull@gmail.com"
+            "email": "me@gabrielbull.com"
         }
     ],
     "autoload": {
